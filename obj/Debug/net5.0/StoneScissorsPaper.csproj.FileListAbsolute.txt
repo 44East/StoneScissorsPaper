@@ -1,0 +1,16 @@
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\bin\Debug\net5.0\StoneScissorsPaper.exe
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\bin\Debug\net5.0\StoneScissorsPaper.deps.json
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\bin\Debug\net5.0\StoneScissorsPaper.runtimeconfig.json
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\bin\Debug\net5.0\StoneScissorsPaper.runtimeconfig.dev.json
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\bin\Debug\net5.0\StoneScissorsPaper.dll
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\bin\Debug\net5.0\ref\StoneScissorsPaper.dll
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\bin\Debug\net5.0\StoneScissorsPaper.pdb
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\obj\Debug\net5.0\StoneScissorsPaper.csproj.AssemblyReference.cache
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\obj\Debug\net5.0\StoneScissorsPaper.GeneratedMSBuildEditorConfig.editorconfig
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\obj\Debug\net5.0\StoneScissorsPaper.AssemblyInfoInputs.cache
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\obj\Debug\net5.0\StoneScissorsPaper.AssemblyInfo.cs
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\obj\Debug\net5.0\StoneScissorsPaper.csproj.CoreCompileInputs.cache
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\obj\Debug\net5.0\StoneScissorsPaper.dll
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\obj\Debug\net5.0\ref\StoneScissorsPaper.dll
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\obj\Debug\net5.0\StoneScissorsPaper.pdb
+E:\Workspace-main\Workspace-main\StoneScissorsPaper\obj\Debug\net5.0\StoneScissorsPaper.genruntimeconfig.cache
