@@ -12,7 +12,7 @@ namespace StoneScissorsPaper
         {
             Name = "Компьютер";
         }
-        public Shape GetPcChoice()
+        public Shape GetPcChoice() 
         {
             Random rnd = new Random();
             var answer = rnd.Next(1, 4);

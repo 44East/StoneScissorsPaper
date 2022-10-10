@@ -19,14 +19,14 @@ namespace StoneScissorsPaper
             get => winsInGame;
             set
             {
-                if (winsInGame != 5)
+                if (winsInGame < 5)
                 {
                     winsInGame = value;
                 }
                 else
                 {
                     winsInRounds++;
-                    winsInGame = 0;
+                    winsInGame = default;
 
                 }
             }

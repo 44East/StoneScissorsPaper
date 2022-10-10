@@ -13,13 +13,15 @@ namespace StoneScissorsPaper
         {
             ShowerMessages showerMessages = new();
             showerMessages.ShowTheMessage(showerMessages.textMessages.ChoosingMessages);
-            var input = Console.ReadLine()?.ToLowerInvariant().Trim();
+
             Shape shape = default;
             bool correctInput;
             do
             {
+                var input = Console.ReadLine()?.ToLowerInvariant().Trim();
                 switch (input)
                 {
+
                     case "к":
                     case "камень":
                         {

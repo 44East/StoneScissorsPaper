@@ -85,6 +85,8 @@ namespace StoneScissorsPaper
         {
             userPerson.GetTheGameScore();
             pcPerson.GetTheGameScore();
+
+            Console.ReadKey(); //Delay
         }
 
     }
