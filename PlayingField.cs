@@ -8,14 +8,15 @@ namespace StoneScissorsPaper
 {
     class PlayingField
     {
-        private ShowerMessages showerMessages = new();
+        TextMessages textMessages = new();
+        private MessageReflector messageReflector = new();
         private UserPerson userPerson = new(PlayingField.Introduce());
         private PcPerson pcPerson = new();
+        Action<string> MessagesReflector = (e) => MessageReflector.ShowMessage(e);
 
         static string Introduce()
         {
-            ShowerMessages show = new ShowerMessages();
-            show.ShowTheMessage(show.textMessages.Introducing);
+            Console.Write(TextMessages.Introducing);
             var introduce = Console.ReadLine();
             return introduce;
         }
@@ -23,15 +24,17 @@ namespace StoneScissorsPaper
         public void GetOpen()
         {
             /* Get the method to persons shapes delegate */
-            pcPerson.PaperShape.Reflector += showerMessages.ShowAppearance;
-            pcPerson.ScissorsShape.Reflector += showerMessages.ShowAppearance;
-            pcPerson.StoneShape.Reflector += showerMessages.ShowAppearance;
-            userPerson.PaperShape.Reflector += showerMessages.ShowAppearance;
-            userPerson.ScissorsShape.Reflector += showerMessages.ShowAppearance;
-            userPerson.StoneShape.Reflector += showerMessages.ShowAppearance;
+            pcPerson.PaperShape.Reflector += messageReflector.ShowAppearance;
+            pcPerson.ScissorsShape.Reflector += messageReflector.ShowAppearance;
+            pcPerson.StoneShape.Reflector += messageReflector.ShowAppearance;
+            userPerson.PaperShape.Reflector += messageReflector.ShowAppearance;
+            userPerson.ScissorsShape.Reflector += messageReflector.ShowAppearance;
+            userPerson.StoneShape.Reflector += messageReflector.ShowAppearance;
 
-            showerMessages.ShowTheMessage(showerMessages.textMessages.OpeningMessages);
-            showerMessages.GetClearConsole();
+
+            MessagesReflector(textMessages.OpeningMessages);
+            MessagesReflector(textMessages.OpeningMessages);
+            messageReflector.GetClearConsole();
             GetTheGame();
 
         }
@@ -52,27 +55,27 @@ namespace StoneScissorsPaper
             {
                 userChoice.GetAppear();
                 pcChoice.GetAppear();
-                showerMessages.ShowTheMessage(showerMessages.textMessages.NobodysWin); 
+                MessagesReflector(textMessages.NobodysWin); 
             }
             else if (isPcShapeSafe == true && isUserShapeSafe == false)
             {
                 userChoice.GetAppear();
                 pcChoice.GetAppear();
-                showerMessages.ShowTheMessage(showerMessages.textMessages.PCWinMessage);
+                MessagesReflector(textMessages.PCWinMessage);
                 pcPerson.GiveWinInGames();
             }
             else
             {
                 userChoice.GetAppear();
                 pcChoice.GetAppear();
-                showerMessages.ShowTheMessage(showerMessages.textMessages.UserWinMessage);
+                MessagesReflector(textMessages.UserWinMessage);
                 userPerson.GiveWinInGames();
             }
             GetTheSolution();
         }
         void GetTheSolution()
         {
-            showerMessages.ShowTheMessage(showerMessages.textMessages.DecisionQuestion);
+            MessagesReflector(textMessages.DecisionQuestion);
             bool correctInput;
             do
             {
@@ -81,7 +84,7 @@ namespace StoneScissorsPaper
                 {
                     case "и":
                     case "игра":
-                        GetTheGame();
+                        GetTheGame();  
                         correctInput = true;
                         break;
                     case "в":
@@ -90,7 +93,7 @@ namespace StoneScissorsPaper
                         correctInput = true;
                         break;
                     default:
-                        showerMessages.ShowTheMessage(showerMessages.textMessages.IncorrectInput);
+                        MessagesReflector(textMessages.IncorrectInput);
                         correctInput = false;
                         break;
                 }

@@ -11,8 +11,9 @@ namespace StoneScissorsPaper
         public UserPerson(string name) { Name = name; }
         public Shape GetUserChoice()
         {
-            ShowerMessages showerMessages = new();
-            showerMessages.ShowTheMessage(showerMessages.textMessages.ChoosingMessages);
+            Action<string> reflector = (e) => MessageReflector.ShowMessage(e);
+            TextMessages textMessages = new();
+            reflector(textMessages.ChoosingMessages);
 
             Shape shape = default;
             bool correctInput;
@@ -44,7 +45,7 @@ namespace StoneScissorsPaper
                         }
                     default:
                         {
-                            showerMessages.ShowTheMessage(showerMessages.textMessages.IncorrectInput);
+                            reflector(textMessages.IncorrectInput);
                             correctInput = false;
                             break;
                         }

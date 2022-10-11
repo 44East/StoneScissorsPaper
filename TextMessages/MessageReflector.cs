@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace StoneScissorsPaper
 {
-    class ShowerMessages
+    class MessageReflector
     {
         public TextMessages textMessages = new();
         
-        public void ShowTheMessage(string message) => Console.WriteLine(message);        
+        
+        public static void ShowMessage(string message) => Console.WriteLine(message);
         public void GetClearConsole() => Console.Clear();
         public void ShowAppearance(Shape sender, ConsoleColor col, AppearanceHandlerEventArgs e)
         {
