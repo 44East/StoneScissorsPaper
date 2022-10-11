@@ -22,6 +22,14 @@ namespace StoneScissorsPaper
 
         public void GetOpen()
         {
+            /* Get the method to persons shapes delegate */
+            pcPerson.PaperShape.Reflector += showerMessages.ShowAppearance;
+            pcPerson.ScissorsShape.Reflector += showerMessages.ShowAppearance;
+            pcPerson.StoneShape.Reflector += showerMessages.ShowAppearance;
+            userPerson.PaperShape.Reflector += showerMessages.ShowAppearance;
+            userPerson.ScissorsShape.Reflector += showerMessages.ShowAppearance;
+            userPerson.StoneShape.Reflector += showerMessages.ShowAppearance;
+
             showerMessages.ShowTheMessage(showerMessages.textMessages.OpeningMessages);
             showerMessages.GetClearConsole();
             GetTheGame();
@@ -40,14 +48,23 @@ namespace StoneScissorsPaper
             bool isPcShapeSafe = pcChoice.GetCondition(userChoice);
             bool isUserShapeSafe = userChoice.GetCondition(pcChoice);
 
-            if (isPcShapeSafe == isUserShapeSafe) { showerMessages.ShowTheMessage(showerMessages.textMessages.NobodysWin); }
+            if (isPcShapeSafe == isUserShapeSafe) 
+            {
+                userChoice.GetAppear();
+                pcChoice.GetAppear();
+                showerMessages.ShowTheMessage(showerMessages.textMessages.NobodysWin); 
+            }
             else if (isPcShapeSafe == true && isUserShapeSafe == false)
             {
+                userChoice.GetAppear();
+                pcChoice.GetAppear();
                 showerMessages.ShowTheMessage(showerMessages.textMessages.PCWinMessage);
                 pcPerson.GiveWinInGames();
             }
             else
             {
+                userChoice.GetAppear();
+                pcChoice.GetAppear();
                 showerMessages.ShowTheMessage(showerMessages.textMessages.UserWinMessage);
                 userPerson.GiveWinInGames();
             }

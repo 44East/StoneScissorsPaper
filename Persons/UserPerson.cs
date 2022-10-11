@@ -21,7 +21,6 @@ namespace StoneScissorsPaper
                 var input = Console.ReadLine()?.ToLowerInvariant().Trim();
                 switch (input)
                 {
-
                     case "к":
                     case "камень":
                         {

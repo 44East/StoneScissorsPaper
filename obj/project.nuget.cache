@@ -1,13 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "EBbq4+tpOXboWNMKUjf8a64solHki6Tj9VzfZ5OPzvRrT8ef3uijFkTsreWUBBaOt22IxngN5sEtizkpf1Qdmg==",
+  "dgSpecHash": "UwmzKlsMUudfAkiW3nqQZozQUBOVzo4icRfmCxbpvcLT0FE6s6cMxPvjkiyV8Q8H+jNnS1w18JIkGJmoBaiC1g==",
   "success": true,
-  "projectFilePath": "I:\\Git\\StoneScissorsPaper\\StoneScissorsPaper\\StoneScissorsPaper.csproj",
-  "expectedPackageFiles": [
-    "C:\\Users\\antsw\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.17\\microsoft.netcore.app.host.win-x64.5.0.17.nupkg.sha512",
-    "C:\\Users\\antsw\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\5.0.0\\microsoft.aspnetcore.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\antsw\\.nuget\\packages\\microsoft.windowsdesktop.app.ref\\5.0.0\\microsoft.windowsdesktop.app.ref.5.0.0.nupkg.sha512",
-    "C:\\Users\\antsw\\.nuget\\packages\\microsoft.netcore.app.ref\\5.0.0\\microsoft.netcore.app.ref.5.0.0.nupkg.sha512"
-  ],
+  "projectFilePath": "D:\\C#\\Git\\StoneScissorsPaper\\StoneScissorsPaper.csproj",
+  "expectedPackageFiles": [],
   "logs": []
 }

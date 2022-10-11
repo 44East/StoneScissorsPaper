@@ -9,22 +9,36 @@ namespace StoneScissorsPaper
 {
     class Paper : Shape
     {
-        
+        public override string NameOfObject { get; } = "Бумага";
+        protected override ConsoleColor Col { get; set; }
+        protected override string Appearance { get; } = "####################\n" +
+                                                        "######------------##\n" +
+                                                        "####-#-#!!!!!!!##-##\n" +
+                                                        "##-#---##########-##\n" +
+                                                        "##-#####!!!!!!!##-##\n" +
+                                                        "##-##############-##\n" +
+                                                        "3#-#####!!!!!!!##-##\n" +
+                                                        "##----------------##\n" +
+                                                        "####################\n";
+
         public Paper() { TypeOfObject = (int)Figures.Paper; }
 
         public override bool GetCondition(Shape shape)
         {
             bool getTheCondition = default;
-            switch(shape)
+            switch (shape)
             {
                 case Stone:
                     getTheCondition = true;
+                    Col = ConsoleColor.Green;
                     break;
                 case Scissors:
                     getTheCondition = false;
+                    Col = ConsoleColor.Red;
                     break;
                 case Paper:
                     getTheCondition = true;
+                    Col = ConsoleColor.Green;
                     break;
             }
             return getTheCondition;
@@ -34,5 +48,6 @@ namespace StoneScissorsPaper
         {
             base.GetVoice(index, index2);
         }
+       
     }
 }
