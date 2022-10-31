@@ -6,14 +6,11 @@ using System.Threading.Tasks;
 
 namespace StoneScissorsPaper
 {
-    class MessageReflector
+    internal static class MessageReflector
     {
-        public TextMessages textMessages = new();
-        
-        
-        public static void ShowMessage(string message) => Console.WriteLine(message);
-        public void GetClearConsole() => Console.Clear();
-        public void ShowAppearance(Shape sender, ConsoleColor col, AppearanceHandlerEventArgs e)
+        public static void ShowMessage(string message) => Console.Write(message);
+        public static void GetClearConsole() => Console.Clear();
+        public static void ShowAppearance(Shape sender, ConsoleColor col, AppearanceHandlerEventArgs e)
         {
             Console.WriteLine($"Выбрана фигура: {sender.NameOfObject}");
             Console.ForegroundColor = col;

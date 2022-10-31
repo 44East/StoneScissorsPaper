@@ -29,7 +29,7 @@ namespace StoneScissorsPaper
            Console.WriteLine(getVoice);
         }
         /********************************/
-        #endregion
+        #endregion Unused
         public abstract bool GetCondition(Shape shape);
         
     }

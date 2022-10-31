@@ -8,12 +8,16 @@ namespace StoneScissorsPaper
 {
     sealed class UserPerson : Person
     {
-        public UserPerson(string name) { Name = name; }
+        public UserPerson() { Name = GetTheName(); }
+        private string GetTheName()
+        {
+            MessageReflector.ShowMessage(TextMessages.Introducing);
+            return Console.ReadLine();
+        }
         public Shape GetUserChoice()
         {
             Action<string> reflector = (e) => MessageReflector.ShowMessage(e);
-            TextMessages textMessages = new();
-            reflector(textMessages.ChoosingMessages);
+            reflector(TextMessages.ChoosingMessages);
 
             Shape shape = default;
             bool correctInput;
@@ -45,7 +49,7 @@ namespace StoneScissorsPaper
                         }
                     default:
                         {
-                            reflector(textMessages.IncorrectInput);
+                            reflector(TextMessages.IncorrectInput);
                             correctInput = false;
                             break;
                         }

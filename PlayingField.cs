@@ -8,33 +8,26 @@ namespace StoneScissorsPaper
 {
     class PlayingField
     {
-        TextMessages textMessages = new();
-        private MessageReflector messageReflector = new();
-        private UserPerson userPerson = new(PlayingField.Introduce());
+        
+        private UserPerson userPerson = new UserPerson();
         private PcPerson pcPerson = new();
-        Action<string> MessagesReflector = (e) => MessageReflector.ShowMessage(e);
+        Action<string> ActionReflector = (e) => MessageReflector.ShowMessage(e);
 
-        static string Introduce()
-        {
-            Console.Write(TextMessages.Introducing);
-            var introduce = Console.ReadLine();
-            return introduce;
-        }
-
+        
         public void GetOpen()
         {
             /* Get the method to persons shapes delegate */
-            pcPerson.PaperShape.Reflector += messageReflector.ShowAppearance;
-            pcPerson.ScissorsShape.Reflector += messageReflector.ShowAppearance;
-            pcPerson.StoneShape.Reflector += messageReflector.ShowAppearance;
-            userPerson.PaperShape.Reflector += messageReflector.ShowAppearance;
-            userPerson.ScissorsShape.Reflector += messageReflector.ShowAppearance;
-            userPerson.StoneShape.Reflector += messageReflector.ShowAppearance;
+            pcPerson.PaperShape.Reflector += MessageReflector.ShowAppearance;
+            pcPerson.ScissorsShape.Reflector += MessageReflector.ShowAppearance;
+            pcPerson.StoneShape.Reflector += MessageReflector.ShowAppearance;
+            userPerson.PaperShape.Reflector += MessageReflector.ShowAppearance;
+            userPerson.ScissorsShape.Reflector += MessageReflector.ShowAppearance;
+            userPerson.StoneShape.Reflector += MessageReflector.ShowAppearance;
 
 
-            MessagesReflector(textMessages.OpeningMessages);
-            MessagesReflector(textMessages.OpeningMessages);
-            messageReflector.GetClearConsole();
+            ActionReflector(TextMessages.OpeningMessages);
+            ActionReflector(TextMessages.OpeningMessages);
+            MessageReflector.GetClearConsole();
             GetTheGame();
 
         }
@@ -55,27 +48,27 @@ namespace StoneScissorsPaper
             {
                 userChoice.GetAppear();
                 pcChoice.GetAppear();
-                MessagesReflector(textMessages.NobodysWin); 
+                ActionReflector(TextMessages.NobodysWin); 
             }
             else if (isPcShapeSafe == true && isUserShapeSafe == false)
             {
                 userChoice.GetAppear();
                 pcChoice.GetAppear();
-                MessagesReflector(textMessages.PCWinMessage);
+                ActionReflector(TextMessages.PCWinMessage);
                 pcPerson.GiveWinInGames();
             }
             else
             {
                 userChoice.GetAppear();
                 pcChoice.GetAppear();
-                MessagesReflector(textMessages.UserWinMessage);
+                ActionReflector(TextMessages.UserWinMessage);
                 userPerson.GiveWinInGames();
             }
             GetTheSolution();
         }
         void GetTheSolution()
         {
-            MessagesReflector(textMessages.DecisionQuestion);
+            ActionReflector(TextMessages.DecisionQuestion);
             bool correctInput;
             do
             {
@@ -93,7 +86,7 @@ namespace StoneScissorsPaper
                         correctInput = true;
                         break;
                     default:
-                        MessagesReflector(textMessages.IncorrectInput);
+                        ActionReflector(TextMessages.IncorrectInput);
                         correctInput = false;
                         break;
                 }
