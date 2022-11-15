@@ -14,22 +14,14 @@ namespace StoneScissorsPaper
         protected abstract ConsoleColor Col { get; set; }
         public abstract string NameOfObject { get; }
         protected abstract string Appearance { get; }
-        public int TypeOfObject { get; init; }
+        public Figures TypeOfObject { get; init; }
 
-        Dialogue voice = new Dialogue();
+        
         public virtual void GetAppear()
         {
             Reflector?.Invoke(this, Col, new AppearanceHandlerEventArgs(Appearance));
         }
-        #region
-        /*it is didn't use **************/
-        public virtual void GetVoice(int index, int index2)
-        {
-           var getVoice = voice[index, index2];
-           Console.WriteLine(getVoice);
-        }
-        /********************************/
-        #endregion Unused
+        
         public abstract bool GetCondition(Shape shape);
         
     }

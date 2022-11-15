@@ -21,7 +21,7 @@ namespace StoneScissorsPaper
                                                         "##----------------##\n" +
                                                         "####################\n";
 
-        public Paper() { TypeOfObject = (int)Figures.Paper; }
+        public Paper() { TypeOfObject = Figures.Paper; }
 
         public override bool GetCondition(Shape shape)
         {
@@ -44,10 +44,5 @@ namespace StoneScissorsPaper
             return getTheCondition;
         }
 
-        public override void GetVoice(int index, int index2)
-        {
-            base.GetVoice(index, index2);
-        }
-       
     }
 }

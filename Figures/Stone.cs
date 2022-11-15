@@ -19,7 +19,7 @@ namespace StoneScissorsPaper
                                                         "#########--#########\n" +
                                                         "####################\n";
         protected override ConsoleColor Col { get; set; }
-        public Stone() { TypeOfObject = (int)Figures.Stone; }
+        public Stone() { TypeOfObject = Figures.Stone; }
 
         public override bool GetCondition(Shape shape)
         {
@@ -43,10 +43,7 @@ namespace StoneScissorsPaper
 
         }
 
-        public override void GetVoice(int index, int index2)
-        {
-            base.GetVoice(index, index2);
-        }
+        
         
     }
 }
