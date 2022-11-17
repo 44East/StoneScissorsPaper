@@ -8,10 +8,16 @@ namespace StoneScissorsPaper
 {
     abstract class Person
     {
+        public Person(string textCode)
+        {
+            StoneShape = new Stone(textCode);
+            ScissorsShape = new Scissors(textCode);
+            PaperShape = new Paper(textCode);
+        }
         #region Shapes
-        public Stone StoneShape = new();
-        public Scissors ScissorsShape = new();
-        public Paper PaperShape = new();
+        public Stone StoneShape;
+        public Scissors ScissorsShape;
+        public Paper PaperShape;
         #endregion
         public string Name { get; init; }
         #region Scores
@@ -40,8 +46,13 @@ namespace StoneScissorsPaper
 
         public virtual void GiveWinInGames() => WinsInGame++;
 
-        public virtual void GetTheGameScore() { Console.WriteLine($"{Name}: cчет побед в играх - {WinsInGame}, в раундах - {WinsInRounds} "); }
-        
+        public virtual void GetTheGameScore(string textCode)
+        {
+            var textMessages = BaseTextMessages.GetTheInstance(textCode);
+            MessageReflector.ShowMessage(Name+textMessages.GamesScore+WinsInGame+textMessages.RoundsScore+WinsInRounds+"\n");
+        }
+
+
 
     }
 }

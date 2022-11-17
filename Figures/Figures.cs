@@ -8,9 +8,9 @@ namespace StoneScissorsPaper
 {
     enum Figures
     {
-        Stone = 1,
-        Scisssors = 2,
-        Paper = 3
+        Stone,
+        Scisssors,
+        Paper
     }
 
 }

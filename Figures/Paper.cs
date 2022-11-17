@@ -9,7 +9,7 @@ namespace StoneScissorsPaper
 {
     class Paper : Shape
     {
-        public override string NameOfObject { get; } = "Бумага";
+        public override string NameOfObject { get; init; }
         protected override ConsoleColor Col { get; set; }
         protected override string Appearance { get; } = "####################\n" +
                                                         "######------------##\n" +
@@ -21,7 +21,8 @@ namespace StoneScissorsPaper
                                                         "##----------------##\n" +
                                                         "####################\n";
 
-        public Paper() { TypeOfObject = Figures.Paper; }
+        public Paper(string textCode)
+        : base(Figures.Paper, textCode) { }
 
         public override bool GetCondition(Shape shape)
         {

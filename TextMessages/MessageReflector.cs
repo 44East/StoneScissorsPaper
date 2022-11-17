@@ -12,7 +12,7 @@ namespace StoneScissorsPaper
         public static void GetClearConsole() => Console.Clear();
         public static void ShowAppearance(Shape sender, ConsoleColor col, AppearanceHandlerEventArgs e)
         {
-            Console.WriteLine($"Выбрана фигура: {sender.NameOfObject}");
+            Console.WriteLine(/*"Выбрана фигура: */$"{sender.NameOfObject}");
             Console.ForegroundColor = col;
             Console.WriteLine(e.message);
             Console.ForegroundColor = ConsoleColor.White;

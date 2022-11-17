@@ -8,14 +8,25 @@ namespace StoneScissorsPaper
 {
     class PlayingField
     {
+        private BaseTextMessages textMessages; 
+        private UserPerson userPerson;
+        private PcPerson pcPerson;
+        public PlayingField()
+        {
+            textMessages = BaseTextMessages.CreateFirstInstance();
+            userPerson = new(textMessages.TextCode);
+            pcPerson = new(textMessages.TextCode);
+            GetOpen();
+        }
         
-        private UserPerson userPerson = new UserPerson();
-        private PcPerson pcPerson = new();
+
+        
         Action<string> ActionReflector = (e) => MessageReflector.ShowMessage(e);
 
         
-        public void GetOpen()
+        void GetOpen()
         {
+            
             /* Get the method to persons shapes delegate */
             pcPerson.PaperShape.Reflector += MessageReflector.ShowAppearance;
             pcPerson.ScissorsShape.Reflector += MessageReflector.ShowAppearance;
@@ -25,15 +36,15 @@ namespace StoneScissorsPaper
             userPerson.StoneShape.Reflector += MessageReflector.ShowAppearance;
 
 
-            ActionReflector(TextMessages.OpeningMessages);
-            ActionReflector(TextMessages.OpeningMessages);
+            ActionReflector(textMessages.OpeningMessages);
+            ActionReflector(textMessages.OpeningMessages);
             MessageReflector.GetClearConsole();
             GetTheGame();
 
         }
         void GetTheGame()
         {
-            Shape userChoice = userPerson.GetUserChoice();
+            Shape userChoice = userPerson.GetUserChoice(textMessages.TextCode);
             Shape pcChoice = pcPerson.GetPcChoice();
             GetCompare(userChoice, pcChoice);
         }
@@ -48,27 +59,27 @@ namespace StoneScissorsPaper
             {
                 userChoice.GetAppear();
                 pcChoice.GetAppear();
-                ActionReflector(TextMessages.NobodysWin); 
+                ActionReflector(textMessages.NobodysWin); 
             }
             else if (isPcShapeSafe == true && isUserShapeSafe == false)
             {
                 userChoice.GetAppear();
                 pcChoice.GetAppear();
-                ActionReflector(TextMessages.PCWinMessage);
+                ActionReflector(textMessages.PCWinMessage);
                 pcPerson.GiveWinInGames();
             }
             else
             {
                 userChoice.GetAppear();
                 pcChoice.GetAppear();
-                ActionReflector(TextMessages.UserWinMessage);
+                ActionReflector(textMessages.UserWinMessage);
                 userPerson.GiveWinInGames();
             }
             GetTheSolution();
         }
         void GetTheSolution()
         {
-            ActionReflector(TextMessages.DecisionQuestion);
+            ActionReflector(textMessages.DecisionQuestion);
             bool correctInput;
             do
             {
@@ -77,16 +88,20 @@ namespace StoneScissorsPaper
                 {
                     case "и":
                     case "игра":
+                    case "p":
+                    case "play":
                         GetTheGame();  
                         correctInput = true;
                         break;
                     case "в":
                     case "выход":
+                    case "e":
+                    case "exit":
                         GetTheExit();
                         correctInput = true;
                         break;
                     default:
-                        ActionReflector(TextMessages.IncorrectInput);
+                        ActionReflector(textMessages.IncorrectInput);
                         correctInput = false;
                         break;
                 }
@@ -96,8 +111,8 @@ namespace StoneScissorsPaper
         }
         void GetTheExit()
         {
-            userPerson.GetTheGameScore();
-            pcPerson.GetTheGameScore();
+            userPerson.GetTheGameScore(textMessages.TextCode);
+            pcPerson.GetTheGameScore(textMessages.TextCode);
 
             Console.ReadKey(); //Delay
         }

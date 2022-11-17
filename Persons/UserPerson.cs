@@ -8,16 +8,21 @@ namespace StoneScissorsPaper
 {
     sealed class UserPerson : Person
     {
-        public UserPerson() { Name = GetTheName(); }
-        private string GetTheName()
+        public UserPerson(string textCode) 
+        : base(textCode){ Name = GetTheName(textCode); }
+        private string GetTheName(string textCode)
         {
-            MessageReflector.ShowMessage(TextMessages.Introducing);
+            BaseTextMessages textMessages = BaseTextMessages.GetTheInstance(textCode);
+            MessageReflector.ShowMessage(textMessages.Introducing);
             return Console.ReadLine();
         }
-        public Shape GetUserChoice()
+        public Shape GetUserChoice(string textCode)
         {
+            
             Action<string> reflector = (e) => MessageReflector.ShowMessage(e);
-            reflector(TextMessages.ChoosingMessages);
+            BaseTextMessages texteMessages = BaseTextMessages.GetTheInstance(textCode);
+
+            reflector(texteMessages.ChoosingMessages);
 
             Shape shape = default;
             bool correctInput;
@@ -28,6 +33,8 @@ namespace StoneScissorsPaper
                 {
                     case "к":
                     case "камень":
+                    case "st":
+                    case "stone":
                         {
                             shape = StoneShape;
                             correctInput = true;
@@ -35,6 +42,8 @@ namespace StoneScissorsPaper
                         }
                     case "н":
                     case "ножницы":
+                    case "sc":
+                    case "scissors":
                         {
                             shape = ScissorsShape;
                             correctInput = true;
@@ -42,6 +51,8 @@ namespace StoneScissorsPaper
                         }
                     case "б":
                     case "бумага":
+                    case "p":
+                    case "paper":
                         {
                             shape = PaperShape;
                             correctInput = true;
@@ -49,7 +60,7 @@ namespace StoneScissorsPaper
                         }
                     default:
                         {
-                            reflector(TextMessages.IncorrectInput);
+                            reflector(texteMessages.IncorrectInput);
                             correctInput = false;
                             break;
                         }
@@ -60,7 +71,7 @@ namespace StoneScissorsPaper
             return shape;
         }
         public override void GiveWinInGames() => base.GiveWinInGames();
-        public override void GetTheGameScore() { base.GetTheGameScore(); }
+        public override void GetTheGameScore(string textCode) { base.GetTheGameScore(textCode); }
 
     }
 }

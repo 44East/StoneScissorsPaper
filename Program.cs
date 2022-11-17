@@ -10,7 +10,8 @@ namespace StoneScissorsPaper
         static void Main(string[] args)
         {
             PlayingField Game = new();
-            Game.GetOpen();
+           
+            
 
 
 

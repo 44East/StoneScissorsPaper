@@ -8,9 +8,12 @@ namespace StoneScissorsPaper
 {
     sealed class PcPerson : Person
     { 
-        public PcPerson()
+        public PcPerson(string textCode) : base(textCode)
         {
-            Name = "Компьютер";
+            if (textCode.Equals("Ru"))
+                Name = "Компьютер";
+            else
+                Name = "Computer";
         }
         public Shape GetPcChoice() 
         {
@@ -32,7 +35,7 @@ namespace StoneScissorsPaper
             return shape;
         }
         public override void GiveWinInGames() => base.GiveWinInGames();
-        public override void GetTheGameScore() { base.GetTheGameScore(); }
+        public override void GetTheGameScore(string textCode) { base.GetTheGameScore(textCode); }
         
 
     
