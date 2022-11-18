@@ -8,6 +8,7 @@ namespace StoneScissorsPaper
 {
     internal abstract class BaseTextMessages
     {
+        private static BaseTextMessages textMessages;
         public abstract string TextCode { get; }
         public abstract string ChoosingMessages { get; } 
         public abstract string OpeningMessages { get; } 
@@ -30,6 +31,8 @@ namespace StoneScissorsPaper
                                            "|Enter / Ввод (En/Ру): ";
         public static BaseTextMessages CreateFirstInstance()
         {
+            if (textMessages != null)
+                return textMessages;
             MessageReflector.ShowMessage(langSelect);
             string userChoice;
             do
@@ -39,12 +42,14 @@ namespace StoneScissorsPaper
                 {
                     case "en":
                     case "english":
-                        return new EnglishTextMessages();
+                        textMessages = new EnglishTextMessages();
+                        return textMessages;
                     case "ru":
                     case "russian":
                     case "ру":
                     case "русский":
-                        return new RussianTextMessages();
+                        textMessages = new RussianTextMessages();
+                        return textMessages;
                     default:
                         MessageReflector.ShowMessage("Incorrect input / Неверный ввод");
                         break;
