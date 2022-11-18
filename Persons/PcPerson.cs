@@ -18,17 +18,17 @@ namespace StoneScissorsPaper
         public Shape GetPcChoice() 
         {
             Random rnd = new Random();
-            var answer = rnd.Next(1, 4);
+            var answer = rnd.Next(0, 3);
             Shape shape = default;
             switch (answer)
             {
-                case 1:
+                case (int)Figures.Stone:
                     shape = StoneShape;
                     break;
-                case 2:
+                case (int)Figures.Scisssors:
                     shape = ScissorsShape;
                     break;
-                case 3:
+                case (int)Figures.Paper:
                     shape = PaperShape;
                     break;
             }
