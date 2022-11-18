@@ -20,9 +20,9 @@ namespace StoneScissorsPaper
         {
             
             Action<string> reflector = (e) => MessageReflector.ShowMessage(e);
-            BaseTextMessages texteMessages = BaseTextMessages.GetTheInstance(textCode);
+            BaseTextMessages textMessages = BaseTextMessages.GetTheInstance(textCode);
 
-            reflector(texteMessages.ChoosingMessages);
+            reflector(textMessages.ChoosingMessages);
 
             Shape shape = default;
             bool correctInput;
@@ -60,7 +60,7 @@ namespace StoneScissorsPaper
                         }
                     default:
                         {
-                            reflector(texteMessages.IncorrectInput);
+                            reflector(textMessages.IncorrectInput);
                             correctInput = false;
                             break;
                         }
