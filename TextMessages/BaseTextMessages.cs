@@ -32,12 +32,11 @@ namespace StoneScissorsPaper
         public static BaseTextMessages CreateFirstInstance()
         {
             if (textMessages != null)
-                return textMessages;
-            MessageReflector.ShowMessage(langSelect);
-            string userChoice;
+                return textMessages; 
             do
             {
-                userChoice = Console.ReadLine().Trim().ToLower();
+                MessageReflector.ShowMessage(langSelect);
+                var userChoice = Console.ReadLine().Trim().ToLowerInvariant();
                 switch(userChoice)
                 {
                     case "en":
