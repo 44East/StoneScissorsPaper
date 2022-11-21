@@ -20,16 +20,10 @@ namespace StoneScissorsPaper
         public abstract string Introducing { get; }
         public abstract string GamesScore{ get; }
         public abstract string RoundsScore{ get; }
-        public static BaseTextMessages GetTheInstance(string textCode)
-        {
-            if (textCode.Equals("Ru"))
-                return new RussianTextMessages();
-            else
-                return new EnglishTextMessages();
-        }
+        
         private static string langSelect = "|Select and enter your language / Выберите свой язык и введите его|\n" +
                                            "|Enter / Ввод (En/Ру): ";
-        public static BaseTextMessages CreateFirstInstance()
+        public static BaseTextMessages CreateInstance()
         {
             if (textMessages != null)
                 return textMessages; 

@@ -10,6 +10,7 @@ namespace StoneScissorsPaper
     
     abstract class Shape 
     {
+
         public delegate void AppearanceHandler(Shape sender, ConsoleColor col, AppearanceHandlerEventArgs e);
         public event AppearanceHandler Reflector = null;
         

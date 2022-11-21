@@ -13,7 +13,7 @@ namespace StoneScissorsPaper
         private PcPerson pcPerson;
         public PlayingField()
         {
-            textMessages = BaseTextMessages.CreateFirstInstance();
+            textMessages = BaseTextMessages.CreateInstance();
             userPerson = new(textMessages.TextCode);
             pcPerson = new(textMessages.TextCode);
             GetOpen();
@@ -44,7 +44,7 @@ namespace StoneScissorsPaper
         }
         void GetTheGame()
         {
-            Shape userChoice = userPerson.GetUserChoice(textMessages.TextCode);
+            Shape userChoice = userPerson.GetUserChoice();
             Shape pcChoice = pcPerson.GetPcChoice();
             GetCompare(userChoice, pcChoice);
         }
@@ -111,8 +111,8 @@ namespace StoneScissorsPaper
         }
         void GetTheExit()
         {
-            userPerson.GetTheGameScore(textMessages.TextCode);
-            pcPerson.GetTheGameScore(textMessages.TextCode);
+            userPerson.GetTheGameScore();
+            pcPerson.GetTheGameScore();
 
             Console.ReadKey(); //Delay
         }

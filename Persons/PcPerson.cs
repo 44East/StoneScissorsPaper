@@ -35,7 +35,7 @@ namespace StoneScissorsPaper
             return shape;
         }
         public override void GiveWinInGames() => base.GiveWinInGames();
-        public override void GetTheGameScore(string textCode) { base.GetTheGameScore(textCode); }
+        public override void GetTheGameScore() { base.GetTheGameScore(); }
         
 
     

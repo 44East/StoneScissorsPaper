@@ -8,19 +8,23 @@ namespace StoneScissorsPaper
 {
     sealed class UserPerson : Person
     {
-        public UserPerson(string textCode) 
-        : base(textCode){ Name = GetTheName(textCode); }
-        private string GetTheName(string textCode)
+        
+        public UserPerson(string textCode) : base(textCode)
         {
-            BaseTextMessages textMessages = BaseTextMessages.GetTheInstance(textCode);
+            
+            Name = GetTheName(); 
+        }
+        private string GetTheName()
+        {
+            
             MessageReflector.ShowMessage(textMessages.Introducing);
             return Console.ReadLine();
         }
-        public Shape GetUserChoice(string textCode)
+        public Shape GetUserChoice()
         {
             
             Action<string> reflector = (e) => MessageReflector.ShowMessage(e);
-            BaseTextMessages textMessages = BaseTextMessages.GetTheInstance(textCode);
+            
 
             reflector(textMessages.ChoosingMessages);
 
@@ -71,7 +75,7 @@ namespace StoneScissorsPaper
             return shape;
         }
         public override void GiveWinInGames() => base.GiveWinInGames();
-        public override void GetTheGameScore(string textCode) { base.GetTheGameScore(textCode); }
+        public override void GetTheGameScore() { base.GetTheGameScore(); }
 
     }
 }

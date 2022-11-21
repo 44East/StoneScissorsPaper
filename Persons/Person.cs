@@ -8,8 +8,10 @@ namespace StoneScissorsPaper
 {
     abstract class Person
     {
+        internal BaseTextMessages textMessages;
         public Person(string textCode)
         {
+            textMessages = BaseTextMessages.CreateInstance();
             StoneShape = new Stone(textCode);
             ScissorsShape = new Scissors(textCode);
             PaperShape = new Paper(textCode);
@@ -46,10 +48,10 @@ namespace StoneScissorsPaper
 
         public virtual void GiveWinInGames() => WinsInGame++;
 
-        public virtual void GetTheGameScore(string textCode)
+        public virtual void GetTheGameScore()
         {
-            var textMessages = BaseTextMessages.GetTheInstance(textCode);
-            MessageReflector.ShowMessage(Name+textMessages.GamesScore+WinsInGame+textMessages.RoundsScore+WinsInRounds+"\n");
+
+            MessageReflector.ShowMessage($"{Name}\t  " + textMessages.GamesScore  + WinsInGame + textMessages.RoundsScore  + WinsInRounds + "\n");
         }
 
 
