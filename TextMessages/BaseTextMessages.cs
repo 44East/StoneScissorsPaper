@@ -23,6 +23,12 @@ namespace StoneScissorsPaper
         
         private static string langSelect = "|Select and enter your language / Выберите свой язык и введите его|\n" +
                                            "|Enter / Ввод (En/Ру): ";
+        /// <summary>
+        /// Singleton for lagauage types 
+        /// </summary>
+        /// <returns>
+        /// Englis or Russian instance 
+        /// </returns>
         public static BaseTextMessages CreateInstance()
         {
             if (textMessages != null)

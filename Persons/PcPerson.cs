@@ -15,6 +15,12 @@ namespace StoneScissorsPaper
             else
                 Name = "Computer";
         }
+        /// <summary>
+        /// Random logic for PC choice
+        /// </summary>
+        /// <returns>
+        /// Some figure
+        /// </returns>
         public Shape GetPcChoice() 
         {
             Random rnd = new Random();

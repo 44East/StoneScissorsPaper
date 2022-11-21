@@ -9,6 +9,10 @@ namespace StoneScissorsPaper
     abstract class Person
     {
         internal BaseTextMessages textMessages;
+
+        /// <summary>
+        /// All persons must have the figures for playing process 
+        /// </summary>
         public Person(string textCode)
         {
             textMessages = BaseTextMessages.CreateInstance();
@@ -23,12 +27,16 @@ namespace StoneScissorsPaper
         #endregion
         public string Name { get; init; }
         #region Scores
+        /// <value>
+        /// One round has five games
+        /// </value>
         private int winsInGame;
         public int WinsInGame
         {
             get => winsInGame;
             set
             {
+                
                 if (winsInGame < 5)
                 {
                     winsInGame = value;
@@ -48,6 +56,9 @@ namespace StoneScissorsPaper
 
         public virtual void GiveWinInGames() => WinsInGame++;
 
+        /// <summary>
+        /// The final output all scores
+        /// </summary>
         public virtual void GetTheGameScore()
         {
 

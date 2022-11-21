@@ -11,6 +11,10 @@ namespace StoneScissorsPaper
         private BaseTextMessages textMessages; 
         private UserPerson userPerson;
         private PcPerson pcPerson;
+
+        /// <summary>
+        /// Init the game, select the languahe
+        /// </summary>
         public PlayingField()
         {
             textMessages = BaseTextMessages.CreateInstance();
@@ -23,11 +27,14 @@ namespace StoneScissorsPaper
         
         Action<string> ActionReflector = (e) => MessageReflector.ShowMessage(e);
 
-        
+        /// <summary>
+        /// Add the output method to shapes events,
+        /// Greeting, and open game.
+        /// </summary>
         void GetOpen()
         {
             
-            /* Get the method to persons shapes delegate */
+            
             pcPerson.PaperShape.Reflector += MessageReflector.ShowAppearance;
             pcPerson.ScissorsShape.Reflector += MessageReflector.ShowAppearance;
             pcPerson.StoneShape.Reflector += MessageReflector.ShowAppearance;
@@ -42,6 +49,7 @@ namespace StoneScissorsPaper
             GetTheGame();
 
         }
+        
         void GetTheGame()
         {
             Shape userChoice = userPerson.GetUserChoice();
@@ -49,7 +57,9 @@ namespace StoneScissorsPaper
             GetCompare(userChoice, pcChoice);
         }
 
-
+        /// <summary>
+        /// Comparison figures by boolean logic in a base shape class
+        /// </summary>
         void GetCompare(Shape userChoice, Shape pcChoice)
         {
             bool isPcShapeSafe = pcChoice.GetCondition(userChoice);
@@ -77,6 +87,9 @@ namespace StoneScissorsPaper
             }
             GetTheSolution();
         }
+        /// <summary>
+        /// Two options for user - get the next match or leave the game
+        /// </summary>
         void GetTheSolution()
         {
             ActionReflector(textMessages.DecisionQuestion);

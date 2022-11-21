@@ -8,23 +8,24 @@ namespace StoneScissorsPaper
 {
     sealed class UserPerson : Person
     {
-        
-        public UserPerson(string textCode) : base(textCode)
-        {
-            
-            Name = GetTheName(); 
-        }
+
+        public UserPerson(string textCode)
+            : base(textCode) { Name = GetTheName(); }
         private string GetTheName()
         {
-            
             MessageReflector.ShowMessage(textMessages.Introducing);
             return Console.ReadLine();
         }
+        /// <summary>
+        /// This method get the option for user choose
+        /// </summary>
+        /// <returns>
+        /// The figure that user selected
+        /// </returns>
         public Shape GetUserChoice()
         {
-            
             Action<string> reflector = (e) => MessageReflector.ShowMessage(e);
-            
+
 
             reflector(textMessages.ChoosingMessages);
 
