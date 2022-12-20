@@ -21,7 +21,7 @@ namespace StoneScissorsPaper
         protected override ConsoleColor Col { get; set; }
         public Stone(string textCode)
         : base(Figures.Stone, textCode) { }
-
+        public override bool ContainsKey(string key) => NameOfObject.ToLowerInvariant().Contains(key.ToLowerInvariant());
         public override bool GetCondition(Shape shape)
         {
             bool getTheCondition = default;

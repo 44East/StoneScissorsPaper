@@ -9,8 +9,8 @@ namespace StoneScissorsPaper
     sealed class UserPerson : Person
     {
 
-        public UserPerson(string textCode)
-            : base(textCode) { Name = GetTheName(); }
+        public UserPerson(BaseTextMessages textMessages, string textCode)
+            : base(textMessages, textCode) { Name = GetTheName(); }
         private string GetTheName()
         {
             MessageReflector.ShowMessage(textMessages.Introducing);
@@ -27,7 +27,7 @@ namespace StoneScissorsPaper
             Action<string> reflector = (e) => MessageReflector.ShowMessage(e);
 
 
-            reflector(textMessages.ChoosingMessages);
+            reflector(textMessages.GameMenuMessage);
 
             Shape shape = default;
             bool correctInput;

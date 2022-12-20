@@ -10,19 +10,19 @@ namespace StoneScissorsPaper
     {
         private static BaseTextMessages textMessages;
         public abstract string TextCode { get; }
-        public abstract string ChoosingMessages { get; } 
-        public abstract string OpeningMessages { get; } 
+        public abstract string GameMenuMessage { get; } 
+        public abstract string OpeningMessage { get; } 
         public abstract string PCWinMessage { get; }
         public abstract string UserWinMessage { get; }
         public abstract string NobodysWin { get; }
         public abstract string IncorrectInput { get; } 
-        public abstract string DecisionQuestion { get; } 
+        public abstract string MainMenuMessage { get; } 
         public abstract string Introducing { get; }
         public abstract string GamesScore{ get; }
         public abstract string RoundsScore{ get; }
         
-        private static string langSelect = "|Select and enter your language / Выберите свой язык и введите его|\n" +
-                                           "|Enter / Ввод (En/Ру): ";
+        private static string langSelect = "\n|[Select and enter your language] * [Выберите свой язык и введите его]|\n" +
+                                           "|Enter / Ввод [En/Ру]: ";
         /// <summary>
         /// Singleton for lagauage types 
         /// </summary>
@@ -56,5 +56,6 @@ namespace StoneScissorsPaper
             }
             while (true);
         }
+        public static void ResetInstance() => textMessages = null;
     }
 }

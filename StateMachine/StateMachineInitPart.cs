@@ -6,11 +6,7 @@ using System.Threading.Tasks;
 
 namespace StoneScissorsPaper
 {
-    enum Figures 
+    internal class StateMachineInitPart
     {
-        Stone,
-        Scisssors,
-        Paper
     }
-
 }

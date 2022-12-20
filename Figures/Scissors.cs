@@ -22,7 +22,7 @@ namespace StoneScissorsPaper
 
         public Scissors(string textCode) 
         : base(Figures.Scisssors, textCode){ }
-
+        public override bool ContainsKey(string key) => NameOfObject.ToLowerInvariant().Contains(key.ToLowerInvariant());
         public override bool GetCondition(Shape shape)
         {
             bool getTheCondition = default;

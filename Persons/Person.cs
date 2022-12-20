@@ -13,12 +13,12 @@ namespace StoneScissorsPaper
         /// <summary>
         /// All persons must have the figures for playing process 
         /// </summary>
-        public Person(string textCode)
+        public Person(BaseTextMessages textMessages, string textCode)
         {
-            textMessages = BaseTextMessages.CreateInstance();
-            StoneShape = new Stone(textCode);
-            ScissorsShape = new Scissors(textCode);
-            PaperShape = new Paper(textCode);
+            this.textMessages = textMessages;
+            //StoneShape = new Stone(textCode);
+            //ScissorsShape = new Scissors(textCode);
+            //PaperShape = new Paper(textCode);
         }
         #region Shapes
         public Stone StoneShape;

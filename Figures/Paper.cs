@@ -20,10 +20,12 @@ namespace StoneScissorsPaper
                                                         "3#-#####!!!!!!!##-##\n" +
                                                         "##----------------##\n" +
                                                         "####################\n";
+        
+             
 
         public Paper(string textCode)
         : base(Figures.Paper, textCode) { }
-
+        public override bool ContainsKey(string key) => NameOfObject.ToLowerInvariant().Contains(key.ToLowerInvariant());
         public override bool GetCondition(Shape shape)
         {
             bool getTheCondition = default;
