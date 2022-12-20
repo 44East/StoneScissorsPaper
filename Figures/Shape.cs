@@ -27,6 +27,17 @@ namespace StoneScissorsPaper
         
         private string[] _russianNames = { "Камень", "Ножницы", "Бумага" };
         private string[] _englishNames = { "Stone", "Scissors", "Paper" };
+        /// <summary>
+        /// Check to contain the string key, if shape contains key it returns true
+        /// </summary>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        public abstract bool ContainsKey(string key);
+        /// <summary>
+        /// constructor decides the language of naming shapes
+        /// </summary>
+        /// <param name="figures"></param>
+        /// <param name="textCode"></param>
         public Shape(Figures figures, string textCode)
         {
             if (textCode.Equals("Ru"))

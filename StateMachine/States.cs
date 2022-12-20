@@ -6,11 +6,12 @@ using System.Threading.Tasks;
 
 namespace StoneScissorsPaper
 {
-    enum Figures 
+    internal enum States
     {
-        Stone,
-        Scisssors,
-        Paper
+        Start,
+        MainMenu,
+        GameMenu,
+        ScoreMenu,
+        Exit
     }
-
 }

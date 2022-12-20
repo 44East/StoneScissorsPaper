@@ -18,8 +18,8 @@ namespace StoneScissorsPaper
         public PlayingField()
         {
             textMessages = BaseTextMessages.CreateInstance();
-            userPerson = new(textMessages.TextCode);
-            pcPerson = new(textMessages.TextCode);
+            userPerson = new(textMessages,textMessages.TextCode);
+            pcPerson = new(textMessages, textMessages.TextCode);
             GetOpen();
         }
         
@@ -43,8 +43,8 @@ namespace StoneScissorsPaper
             userPerson.StoneShape.Reflector += MessageReflector.ShowAppearance;
 
 
-            ActionReflector(textMessages.OpeningMessages);
-            ActionReflector(textMessages.OpeningMessages);
+            ActionReflector(textMessages.OpeningMessage);
+            ActionReflector(textMessages.OpeningMessage);
             MessageReflector.GetClearConsole();
             GetTheGame();
 
@@ -60,28 +60,28 @@ namespace StoneScissorsPaper
         /// <summary>
         /// Comparison figures by boolean logic in a base shape class
         /// </summary>
-        void GetCompare(Shape userChoice, Shape pcChoice)
+        void GetCompare(Shape userShape, Shape pcShape)
         {
-            bool isPcShapeSafe = pcChoice.GetCondition(userChoice);
-            bool isUserShapeSafe = userChoice.GetCondition(pcChoice);
+            bool isPcShapeSafe = pcShape.GetCondition(userShape);
+            bool isUserShapeSafe = userShape.GetCondition(pcShape);
 
             if (isPcShapeSafe == isUserShapeSafe) 
             {
-                userChoice.GetAppear();
-                pcChoice.GetAppear();
+                userShape.GetAppear();
+                pcShape.GetAppear();
                 ActionReflector(textMessages.NobodysWin); 
             }
             else if (isPcShapeSafe == true && isUserShapeSafe == false)
             {
-                userChoice.GetAppear();
-                pcChoice.GetAppear();
+                userShape.GetAppear();
+                pcShape.GetAppear();
                 ActionReflector(textMessages.PCWinMessage);
                 pcPerson.GiveWinInGames();
             }
             else
             {
-                userChoice.GetAppear();
-                pcChoice.GetAppear();
+                userShape.GetAppear();
+                pcShape.GetAppear();
                 ActionReflector(textMessages.UserWinMessage);
                 userPerson.GiveWinInGames();
             }
@@ -92,7 +92,7 @@ namespace StoneScissorsPaper
         /// </summary>
         void GetTheSolution()
         {
-            ActionReflector(textMessages.DecisionQuestion);
+            ActionReflector(textMessages.MainMenuMessage);
             bool correctInput;
             do
             {
