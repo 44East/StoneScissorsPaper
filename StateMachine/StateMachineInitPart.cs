@@ -33,8 +33,6 @@ namespace StoneScissorsPaper
         }
         private void Initialize()
         {
-
-            #region Input responses
             List<Response> startResponses = new List<Response>()
             {
                 new Response{RuKey = "язык",EnKey = "language" , Action = (()=> SetSystemLanguage()) },
@@ -59,7 +57,6 @@ namespace StoneScissorsPaper
                 new Response{RuKey = "бумага", EnKey = "paper", Action = (()=> SelectFigure(paper))}
             };
             responses.Add(States.GameMenu, gameMenu);
-            #endregion
         }
     }
 }
