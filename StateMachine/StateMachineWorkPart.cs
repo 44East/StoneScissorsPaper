@@ -40,7 +40,7 @@ namespace StoneScissorsPaper
             bool isCorrectInput = false;
             do
             {
-                var userInput = Console.ReadLine().Trim().ToLowerInvariant();
+                var userInput = Console.ReadLine().Trim().ToLower();
 
                 try
                 {
@@ -95,7 +95,8 @@ namespace StoneScissorsPaper
         /// <param name="userShape"></param>
         private void SelectFigure(Shape userShape)
         {
-            Shape pcShape = (from s in shapes where s.TypeOfObject == pcPerson.GetFigure() select s).FirstOrDefault();
+            Random random= new Random();
+            Shape pcShape = shapes[random.Next(0, 3)];
             CompareChoices(pcShape, userShape);
         }
         /// <summary>
@@ -145,7 +146,7 @@ namespace StoneScissorsPaper
         /// </summary>
         private void GetName()
         {
-            userPerson = new(textMessages, textMessages.TextCode);
+            userPerson = new(textMessages);
             MoveNext();
         }
         /// <summary>
@@ -165,6 +166,7 @@ namespace StoneScissorsPaper
         {
             userPerson.GetTheGameScore();
             pcPerson.GetTheGameScore();
+            Thread.Sleep(5000);
             MoveNext();
         }
         /// <summary>

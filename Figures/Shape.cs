@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace StoneScissorsPaper
 {
-    
-    
-    abstract class Shape 
+
+
+    abstract class Shape
     {
         /// <summary>
         /// Delegate and event for display an "image" by strings
@@ -24,7 +24,7 @@ namespace StoneScissorsPaper
         /// </param>
         public delegate void AppearanceHandler(Shape sender, ConsoleColor col, AppearanceHandlerEventArgs e);
         public event AppearanceHandler Reflector = null;
-        
+
         private string[] _russianNames = { "Камень", "Ножницы", "Бумага" };
         private string[] _englishNames = { "Stone", "Scissors", "Paper" };
         /// <summary>
@@ -36,14 +36,16 @@ namespace StoneScissorsPaper
         /// <summary>
         /// constructor decides the language of naming shapes
         /// </summary>
-        /// <param name="figures"></param>
+        /// <param name="figure"></param>
         /// <param name="textCode"></param>
-        public Shape(Figures figures, string textCode)
+        public Shape(Figures figure, string textCode)
         {
             if (textCode.Equals("Ru"))
-                NameOfObject = _russianNames[(int)figures];
+                NameOfObject = _russianNames[(int)figure];
             else
-                NameOfObject = _englishNames[(int)figures];
+                NameOfObject = _englishNames[(int)figure];
+            TypeOfObject = figure;
+
         }
         /// <summary>
         /// ConsoleColor - For win it returns "green" color symbols, for lose "red" symbols
@@ -57,12 +59,12 @@ namespace StoneScissorsPaper
         protected abstract string Appearance { get; }
         public Figures TypeOfObject { get; init; }
 
-        
+
         public void GetAppear()
         {
             Reflector?.Invoke(this, Col, new AppearanceHandlerEventArgs(Appearance));
         }
-        
+
         /// <summary>
         /// it's a boolean logic, for comparison figures
         /// </summary>
@@ -73,6 +75,6 @@ namespace StoneScissorsPaper
         /// If figure loses in comparison, that logic returns [false], but if it's win or draw, it teturns [true] 
         /// </returns>
         public abstract bool GetCondition(Shape shape);//
-        
+
     }
 }

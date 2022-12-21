@@ -9,15 +9,7 @@ namespace StoneScissorsPaper
     {
         static void Main(string[] args)
         {
-            // PlayingField Game = new();
             StateMachine stateMachine = new();
-           
-            
-
-
-
-
-        
         }
     }
 }

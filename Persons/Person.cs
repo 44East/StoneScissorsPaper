@@ -10,21 +10,11 @@ namespace StoneScissorsPaper
     {
         internal BaseTextMessages textMessages;
 
-        /// <summary>
-        /// All persons must have the figures for playing process 
-        /// </summary>
-        public Person(BaseTextMessages textMessages, string textCode)
+        public Person(BaseTextMessages textMessages)
         {
             this.textMessages = textMessages;
-            //StoneShape = new Stone(textCode);
-            //ScissorsShape = new Scissors(textCode);
-            //PaperShape = new Paper(textCode);
         }
-        #region Shapes
-        public Stone StoneShape;
-        public Scissors ScissorsShape;
-        public Paper PaperShape;
-        #endregion
+        
         public string Name { get; init; }
         #region Scores
         /// <value>
