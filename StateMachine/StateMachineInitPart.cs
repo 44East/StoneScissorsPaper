@@ -8,7 +8,7 @@ using static System.Formats.Asn1.AsnWriter;
 namespace StoneScissorsPaper
 {
     /// <summary>
-    /// This part for initializing input/output collections and figures(shapes) collection.
+    /// This part for initializing inputs/outputs collections and figures(shapes) collection.
     /// </summary>
     internal partial class StateMachine
     {

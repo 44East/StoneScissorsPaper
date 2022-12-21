@@ -67,7 +67,7 @@ namespace StoneScissorsPaper
             
         }
         /// <summary>
-        /// If user wants to change langauge method MoveNext() calls this method.
+        /// If user wants to change langauge, method MoveNext() calls this method.
         /// </summary>
         private void SetSystemLanguage()
         {
@@ -78,7 +78,7 @@ namespace StoneScissorsPaper
             MoveNext();
         }
         /// <summary>
-        /// This method initializes system language by property - TextCode from BaseTextMessagesю.
+        /// This method initializes system language by property - TextCode from BaseTextMessages.
         /// If user changes system language, it reinitializes language in all objects.
         /// </summary>
         private void SetObjectsLanguage()
@@ -90,13 +90,13 @@ namespace StoneScissorsPaper
             pcPerson = new(textMessages, textMessages.TextCode);
         }
         /// <summary>
-        /// Calls method from PcPerson to get PC choice and receives user choice, and sends both Shapes in CompareMethod. 
+        /// Calls method from PcPerson to get PC choice and receives user choice, and sends both Shapes in Compare method. 
         /// </summary>
         /// <param name="userShape"></param>
         private void SelectFigure(Shape userShape)
         {
             Shape pcShape = (from s in shapes where s.TypeOfObject == pcPerson.GetFigure() select s).FirstOrDefault();
-            ComparisonChoices(pcShape, userShape);
+            CompareChoices(pcShape, userShape);
         }
         /// <summary>
         /// Compares both Shapes [Pc vs User], which fugure returns true it wins.
@@ -104,7 +104,7 @@ namespace StoneScissorsPaper
         /// </summary>
         /// <param name="pcShape"></param>
         /// <param name="userShape"></param>
-        private void ComparisonChoices(Shape pcShape, Shape userShape)
+        private void CompareChoices(Shape pcShape, Shape userShape)
         {
             bool isPcShapeSafe = pcShape.GetCondition(userShape);
             bool isUserShapeSafe = userShape.GetCondition(pcShape);
@@ -149,7 +149,7 @@ namespace StoneScissorsPaper
             MoveNext();
         }
         /// <summary>
-        /// Initializes shapes collection from econd part this class.
+        /// Initializes shapes collection from second part this class.
         /// Set state.
         /// </summary>
         private void PlayGame()
@@ -159,7 +159,7 @@ namespace StoneScissorsPaper
             MoveNext();
         }
         /// <summary>
-        /// Temp method, it calls method from Person for displaing scores each types. 
+        /// Temp method, it calls method from Person for displaying scores for each type. 
         /// </summary>
         private void OpenScoreMenu()
         {
