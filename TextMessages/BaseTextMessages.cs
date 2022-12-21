@@ -21,8 +21,10 @@ namespace StoneScissorsPaper
         public abstract string GamesScore{ get; }
         public abstract string RoundsScore{ get; }
         
-        private static string langSelect = "\n|[Select and enter your language] * [Выберите свой язык и введите его]|\n" +
-                                           "|Enter / Ввод [En/Ру]: ";
+        private static string langSelect = "\n===========================================================================\n" +
+                                           "|| [Select and enter your language] * [Выберите свой язык и введите его] ||\n" +
+                                           "===========================================================================\n" +
+                                           "Enter / Ввод [En/Ру]: ";
         /// <summary>
         /// Singleton for lagauage types 
         /// </summary>
@@ -56,6 +58,9 @@ namespace StoneScissorsPaper
             }
             while (true);
         }
+        /// <summary>
+        /// This method for reset language in game if user wants to change language. 
+        /// </summary>
         public static void ResetInstance() => textMessages = null;
     }
 }

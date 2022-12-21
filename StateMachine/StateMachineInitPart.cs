@@ -7,12 +7,20 @@ using static System.Formats.Asn1.AsnWriter;
 
 namespace StoneScissorsPaper
 {
+    /// <summary>
+    /// This part for initializing input/output collections and figures(shapes) collection.
+    /// </summary>
     internal partial class StateMachine
     {
+        /// <summary>
+        /// This is collections for response to user text inputs
+        /// </summary>
         private List<Shape> shapes = new List<Shape>();
         private Dictionary<States, List<Response>> responses = new Dictionary<States, List<Response>>();
         private Dictionary<States, string> menuMessages = new Dictionary<States, string>();
-
+        /// <summary>
+        /// Initializing a main text messages 
+        /// </summary>
         private void InitializeMenuMessages()
         {
             menuMessages.Clear();
@@ -22,6 +30,9 @@ namespace StoneScissorsPaper
             menuMessages.Add(States.GameMenu, textMessages.GameMenuMessage);
             #endregion
         }
+        /// <summary>
+        /// Add figures to collection, and add the reflection method for a shapes event 
+        /// </summary>
         private void ShapesInitialize()
         {
             shapes.Add(stone);
@@ -31,6 +42,9 @@ namespace StoneScissorsPaper
             scissors.Reflector += MessageReflector.ShowAppearance;
             paper.Reflector += MessageReflector.ShowAppearance;
         }
+        /// <summary>
+        /// The main initialize method in this part, it initializes "Dictonary<States,Response>" colletion for response to user input.
+        /// </summary>
         private void Initialize()
         {
             List<Response> startResponses = new List<Response>()

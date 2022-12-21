@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace StoneScissorsPaper
@@ -26,8 +27,14 @@ namespace StoneScissorsPaper
             state = States.Start;
             MoveNext();
         }
+        /// <summary>
+        /// Main method in class. It realizes state by user input and compares input with states collections. 
+        /// If collections contain string value and String.Contains returns true, this method calls method from delegate in [Response.cs] object from collection. 
+        /// Collections and reflections stored in second part this class. 
+        /// </summary>
         private void MoveNext()
         {
+            MessageReflector.GetClearConsole();
             outputMsg(menuMessages.GetValueOrDefault(state));
             List<Response> currentStateResponses = responses.GetValueOrDefault(state);
             bool isCorrectInput = false;
@@ -57,7 +64,11 @@ namespace StoneScissorsPaper
                     outputMsg(menuMessages.GetValueOrDefault(state));
                 }
             } while (!isCorrectInput);
+            
         }
+        /// <summary>
+        /// If user wants to change langauge method MoveNext() calls this method.
+        /// </summary>
         private void SetSystemLanguage()
         {
             BaseTextMessages.ResetInstance();
@@ -66,6 +77,10 @@ namespace StoneScissorsPaper
             SetObjectsLanguage();
             MoveNext();
         }
+        /// <summary>
+        /// This method initializes system language by property - TextCode from BaseTextMessagesю.
+        /// If user changes system language, it reinitializes language in all objects.
+        /// </summary>
         private void SetObjectsLanguage()
         {
             InitializeMenuMessages();
@@ -74,11 +89,21 @@ namespace StoneScissorsPaper
             paper = new Paper(textMessages.TextCode);
             pcPerson = new(textMessages, textMessages.TextCode);
         }
+        /// <summary>
+        /// Calls method from PcPerson to get PC choice and receives user choice, and sends both Shapes in CompareMethod. 
+        /// </summary>
+        /// <param name="userShape"></param>
         private void SelectFigure(Shape userShape)
         {
             Shape pcShape = (from s in shapes where s.TypeOfObject == pcPerson.GetFigure() select s).FirstOrDefault();
             ComparisonChoices(pcShape, userShape);
         }
+        /// <summary>
+        /// Compares both Shapes [Pc vs User], which fugure returns true it wins.
+        /// But if both shapes return [true] = draw.
+        /// </summary>
+        /// <param name="pcShape"></param>
+        /// <param name="userShape"></param>
         private void ComparisonChoices(Shape pcShape, Shape userShape)
         {
             bool isPcShapeSafe = pcShape.GetCondition(userShape);
@@ -104,30 +129,47 @@ namespace StoneScissorsPaper
                 outputMsg(textMessages.UserWinMessage);
                 userPerson.GiveWinInGames();
             }
+            Thread.Sleep(5000);
             MoveNext();
         }
+        /// <summary>
+        /// Set state and initialize UserPerson type
+        /// </summary>
         private void GetMainMenu()
         {
             state = States.MainMenu;
             GetName();
         }
+        /// <summary>
+        /// Set User name.
+        /// </summary>
         private void GetName()
         {
             userPerson = new(textMessages, textMessages.TextCode);
             MoveNext();
         }
+        /// <summary>
+        /// Initializes shapes collection from econd part this class.
+        /// Set state.
+        /// </summary>
         private void PlayGame()
         {
             ShapesInitialize();
             state = States.GameMenu;
             MoveNext();
         }
+        /// <summary>
+        /// Temp method, it calls method from Person for displaing scores each types. 
+        /// </summary>
         private void OpenScoreMenu()
         {
             userPerson.GetTheGameScore();
             pcPerson.GetTheGameScore();
             MoveNext();
         }
+        /// <summary>
+        /// Changes state StateMachine if user wants to return back
+        /// </summary>
         private void BackToLastMenu()
         {
             if (state == States.GameMenu)
@@ -136,12 +178,18 @@ namespace StoneScissorsPaper
                 state = States.Start;
             MoveNext();
         }
+        /// <summary>
+        /// Exit with displaying scores
+        /// </summary>
         private void ExitFromGame()
         {
             userPerson.GetTheGameScore();
             pcPerson.GetTheGameScore();
             Exit();
         }
+        /// <summary>
+        /// Just exit.
+        /// </summary>
         private void Exit() { return; }
 
 

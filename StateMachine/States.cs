@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace StoneScissorsPaper
 {
+    /// <summary>
+    /// Working states for "StateMachine" class
+    /// </summary>
     internal enum States
     {
         Start,

@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace StoneScissorsPaper
 {
+    /// <summary>
+    /// It stores the struct (it isn't System type "Struct") of response to user input
+    /// </summary>
     internal class Response
     {
         public Response() { }
@@ -22,7 +25,13 @@ namespace StoneScissorsPaper
             RuKey= ruKey;
             EnKey= enKey;
         }
+        /// <summary>
+        /// Ru user input. StateMachine checks this key with user input by String.Contains() method.
+        /// </summary>
         public string RuKey { get; init; }
+        /// <summary>
+        /// En user input. StateMachine checks this key with user input by String.Contains() method.
+        /// </summary>
         public string EnKey { get; init; }
         public Action Action { get; set; }
     }
