@@ -11,6 +11,7 @@ namespace StoneScissorsPaper
     {
         public override string NameOfObject { get; init; }
         protected override ConsoleColor Col { get; set; }
+        public override Figures TypeOfObject { get; init; }
         protected override string Appearance { get; } = "####################\n" +
                                                         "######------------##\n" +
                                                         "####-#-#!!!!!!!##-##\n" +
@@ -24,7 +25,7 @@ namespace StoneScissorsPaper
              
 
         public Paper(string textCode)
-        : base(Figures.Paper, textCode) { }
+        : base(Figures.Paper, textCode) { TypeOfObject = Figures.Paper; }
         public override bool ContainsKey(string key) => NameOfObject.ToLowerInvariant().Contains(key.ToLowerInvariant());
         public override bool GetCondition(Shape shape)
         {

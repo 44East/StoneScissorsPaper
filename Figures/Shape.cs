@@ -28,13 +28,13 @@ namespace StoneScissorsPaper
         private string[] _russianNames = { "Камень", "Ножницы", "Бумага" };
         private string[] _englishNames = { "Stone", "Scissors", "Paper" };
         /// <summary>
-        /// Check to contain the string key, if shape contains key it returns true
+        /// Check to contain the string key, if a shape contains key it returns true
         /// </summary>
         /// <param name="key"></param>
         /// <returns></returns>
         public abstract bool ContainsKey(string key);
         /// <summary>
-        /// constructor decides the language of naming shapes
+        /// constructor decides the language of the naming shapes
         /// </summary>
         /// <param name="figure"></param>
         /// <param name="textCode"></param>
@@ -44,11 +44,11 @@ namespace StoneScissorsPaper
                 NameOfObject = _russianNames[(int)figure];
             else
                 NameOfObject = _englishNames[(int)figure];
-            TypeOfObject = figure;
+            
 
         }
         /// <summary>
-        /// ConsoleColor - For win it returns "green" color symbols, for lose "red" symbols
+        /// ConsoleColor - For win it returns a "green" color symbols, for lose a "red" symbols
         /// </summary>
         protected abstract ConsoleColor Col { get; set; }
         public abstract string NameOfObject { get; init; }
@@ -57,7 +57,7 @@ namespace StoneScissorsPaper
         /// Appearance it's an "image" for each figure
         /// </value>
         protected abstract string Appearance { get; }
-        public Figures TypeOfObject { get; init; }
+        public abstract Figures TypeOfObject { get; init; }
 
 
         public void GetAppear()
@@ -69,10 +69,10 @@ namespace StoneScissorsPaper
         /// it's a boolean logic, for comparison figures
         /// </summary>
         /// <param name="shape">
-        /// Each figure comparisons other figure
+        /// The each figure comparisons with the other figure
         /// </param>
         /// <returns>
-        /// If figure loses in comparison, that logic returns [false], but if it's win or draw, it teturns [true] 
+        /// If a figure loses in comparison, that logic returns [false], but if it's win or draw, it teturns [true] 
         /// </returns>
         public abstract bool GetCondition(Shape shape);//
 

@@ -9,6 +9,7 @@ namespace StoneScissorsPaper
     sealed class Scissors : Shape
     {
         public override string NameOfObject { get; init; }
+        public override Figures TypeOfObject { get; init; }
         protected override string Appearance { get; } = "####################\n" +
                                                         "########-#######-###\n" +
                                                         "#######--#####--####\n" +
@@ -20,8 +21,8 @@ namespace StoneScissorsPaper
                                                         "#####--#####-#######\n";
         protected override ConsoleColor Col { get; set; }
 
-        public Scissors(string textCode) 
-        : base(Figures.Scisssors, textCode){ }
+        public Scissors(string textCode)
+        : base(Figures.Scisssors, textCode) { TypeOfObject = Figures.Scisssors; }
         public override bool ContainsKey(string key) => NameOfObject.ToLowerInvariant().Contains(key.ToLowerInvariant());
         public override bool GetCondition(Shape shape)
         {

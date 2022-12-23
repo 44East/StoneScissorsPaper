@@ -28,9 +28,9 @@ namespace StoneScissorsPaper
             MoveNext();
         }
         /// <summary>
-        /// Main method in class. It realizes state by user input and compares input with states collections. 
-        /// If collections contain string value and String.Contains returns true, this method calls method from delegate in [Response.cs] object from collection. 
-        /// Collections and reflections stored in second part this class. 
+        /// The main method in the class. It realizes a state by user input and compares user input with states collections. 
+        /// If collections contain a string value and String.Contains returns true, this method calls method from the [responses] colection by delegate in an instanse [Response.cs] class. 
+        /// Collections and reflections are stored in the second part of this class. 
         /// </summary>
         private void MoveNext()
         {
@@ -78,8 +78,8 @@ namespace StoneScissorsPaper
             MoveNext();
         }
         /// <summary>
-        /// This method initializes system language by property - TextCode from BaseTextMessages.
-        /// If user changes system language, it reinitializes language in all objects.
+        /// This method initializes a system language by property - TextCode from BaseTextMessages.
+        /// If user changes system language, it reinitializes language in the all objects.
         /// </summary>
         private void SetObjectsLanguage()
         {
@@ -90,13 +90,12 @@ namespace StoneScissorsPaper
             pcPerson = new(textMessages, textMessages.TextCode);
         }
         /// <summary>
-        /// Calls method from PcPerson to get PC choice and receives user choice, and sends both Shapes in Compare method. 
+        /// Calls method from PcPerson and sends a reference to the Shape collection to get PC choice. Also receives a user choice and sends both Shapes in Compare method. 
         /// </summary>
         /// <param name="userShape"></param>
         private void SelectFigure(Shape userShape)
         {
-            Random random= new Random();
-            Shape pcShape = shapes[random.Next(0, 3)];
+            Shape pcShape = pcPerson.GetUserShape(ref shapes);
             CompareChoices(pcShape, userShape);
         }
         /// <summary>
@@ -134,7 +133,7 @@ namespace StoneScissorsPaper
             MoveNext();
         }
         /// <summary>
-        /// Set state and initialize UserPerson type
+        /// Set state and initialize the UserPerson type
         /// </summary>
         private void GetMainMenu()
         {
@@ -142,7 +141,7 @@ namespace StoneScissorsPaper
             GetName();
         }
         /// <summary>
-        /// Set User name.
+        /// Set the User name.
         /// </summary>
         private void GetName()
         {
@@ -150,7 +149,7 @@ namespace StoneScissorsPaper
             MoveNext();
         }
         /// <summary>
-        /// Initializes shapes collection from second part this class.
+        /// Initializes the shapes collection from second part this class.
         /// Set state.
         /// </summary>
         private void PlayGame()
@@ -161,6 +160,7 @@ namespace StoneScissorsPaper
         }
         /// <summary>
         /// Temp method, it calls method from Person for displaying scores for each type. 
+        /// It has the Thread.Sleep for delay so that user can look at results.
         /// </summary>
         private void OpenScoreMenu()
         {

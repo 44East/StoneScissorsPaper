@@ -47,7 +47,7 @@ namespace StoneScissorsPaper
         public virtual void GiveWinInGames() => WinsInGame++;
 
         /// <summary>
-        /// The final output all scores
+        /// The final output the all scores
         /// </summary>
         public virtual void GetTheGameScore()
         {

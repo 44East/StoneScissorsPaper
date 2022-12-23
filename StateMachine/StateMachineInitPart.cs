@@ -8,12 +8,12 @@ using static System.Formats.Asn1.AsnWriter;
 namespace StoneScissorsPaper
 {
     /// <summary>
-    /// This part for initializing inputs/outputs collections and figures(shapes) collection.
+    /// This part for initializing the inputs/outputs collections and the figures(shapes) collection.
     /// </summary>
     internal partial class StateMachine
     {
         /// <summary>
-        /// This is collections for response to user text inputs
+        /// This is collections for the response to the user text inputs
         /// </summary>
         private List<Shape> shapes = new List<Shape>();
         private Dictionary<States, List<Response>> responses = new Dictionary<States, List<Response>>();
@@ -31,7 +31,7 @@ namespace StoneScissorsPaper
             #endregion
         }
         /// <summary>
-        /// Add figures to collection, and add the reflection method for a shapes event 
+        /// Add figures to the collection, and add the reflection method for a shapes event 
         /// </summary>
         private void ShapesInitialize()
         {
@@ -43,7 +43,7 @@ namespace StoneScissorsPaper
             paper.Reflector += MessageReflector.ShowAppearance;
         }
         /// <summary>
-        /// The main initialize method in this part, it initializes "Dictonary<States,Response>" colletion for response to user input.
+        /// The main initialize method in this part, it initializes a "Dictonary<States,Response>" colletion for the response to the user input.
         /// </summary>
         private void Initialize()
         {
